@@ -1,0 +1,25 @@
+.status {
+    border-radius: 12px;
+    background-color: #f1f2f4;
+    width: 100% !important;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 1px #091E4240;
+    margin: 10px;
+    padding: 10px;
+    height: max-content;
+}
+.status .title-status{
+    font-weight: bold;
+    height: 40px;
+}
+.action__create-task{
+    display: flex;
+    align-items: center;
+    padding: 3px;
+}
+.action__create-task:hover{
+    background-color: #091E4224;
+    color: #44546F;
+    cursor: pointer;
+    border-radius: 6px;
+}
