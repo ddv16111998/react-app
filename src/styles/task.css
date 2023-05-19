@@ -3,7 +3,7 @@
     background-color: #FFFFFF;
     margin-bottom: 10px;
     border-radius: 8px;
-    box-shadow: 0px 1px 1px #091E4240;
+    box-shadow: 0px 10px 17px -10px rgba(0, 0, 0, 0.59);
     box-sizing: border-box;
     white-space: normal;
     cursor: pointer;
@@ -11,4 +11,17 @@
     font-size: 15px;
     font-weight: 400;
     line-height: 20px;
+    border: 1px solid #091e4240;
+}
+.task-body .task:hover{
+    background-color: #f1f2f4;
+}
+
+.task .actions{
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.task .actions * {
+    margin-right: 25px;
 }

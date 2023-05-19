@@ -68,23 +68,26 @@ function App() {
       }
     ],
   }
+  const [allTasks, setAllTasks] = useState(all_tasks)
+
+  const onAddTask = (status) => {
+    allTasks[status].push({
+      "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
+      "status": "Review",
+      "assigned": "viendd1",
+      "description": "task desc"
+    })
+  }
   return (
     <div className="App">
-      <header className="header">
-        Header
-      </header>
       <div className="container content-manager">
         {statuses.map((status, index) => {
-              let tasks_by_status = all_tasks[status];
+              let tasks_by_status = allTasks[status];
               return (
-                  <Status tasks={tasks_by_status} status={status} key={index}></Status>
+                  <Status tasks={tasks_by_status} onAddTask={onAddTask} status={status} key={index}></Status>
               )
         })}
-
       </div>
-      <footer className="footer">
-        Footer
-      </footer>
     </div>
   );
 }

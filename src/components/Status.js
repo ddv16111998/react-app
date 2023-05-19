@@ -3,10 +3,12 @@ import '../styles/status.css';
 import { Plus } from "@styled-icons/bootstrap/Plus";
 
 function Status(props){
-    let {status, tasks} = props;
+    let {status, tasks, onAddTask} = props;
+
     return (
         <div className={'status ' + status}>
             <div className="title-status">{status}</div>
+            <div className="cards-by-status">
             {
                 tasks && tasks.map((task, index) => {
                     return (
@@ -14,7 +16,9 @@ function Status(props){
                     )
                 })
             }
-            <div className="action__create-task">
+            </div>
+
+            <div className="action__create-task" onClick={ () => {onAddTask(status)} }>
                 <Plus size={28} />
                 <span>
                     Add a card
