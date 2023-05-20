@@ -12,6 +12,17 @@
   line-height: 20px;
 }
 
+.input-title-new-task{
+  border: none;
+  outline: none;
+  height: 50px;
+  background: #FFFFFF;
+  width: 100%;
+}
+.input-title-new-task:hover{
+  background: #f1f2f4;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
