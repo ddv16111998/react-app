@@ -18,8 +18,14 @@
     padding: 3px;
 }
 .action__create-task:hover{
-    background-color: #091E4224;
+    /*background-color: #091E4224;*/
     color: #44546F;
     cursor: pointer;
     border-radius: 6px;
+}
+
+.status {
+    max-height: 700px;
+    overflow: hidden;
+    overflow-y: scroll;
 }

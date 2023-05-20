@@ -29,3 +29,8 @@
 .task .actions * {
     margin-right: 25px;
 }
+
+.task {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}

@@ -1,7 +1,7 @@
 import './App.css';
 import Status from "./components/Status";
-import {useState} from "react";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import {useEffect, useState} from "react";
+import { DragDropContext } from "react-beautiful-dnd";
 
 function App() {
   const [statuses] = useState(['Todo', 'Doing', 'Review', 'Done']);
@@ -10,18 +10,21 @@ function App() {
   const all_tasks = {
     "Todo": [
       {
+        "id": 'task_1',
         "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations. Mapping postal_code_id cho bảng user, delivery_address,donation_informations.Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
         "status": "Todo",
         "assigned": "viendd",
         "description": "task desc"
       },
       {
+        "id": 'task_2',
         "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
         "status": "Todo",
         "assigned": "viendd1",
         "description": "task desc"
       },
       {
+        "id": 'task_3',
         "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
         "status": "Todo",
         "assigned": "viendd",
@@ -30,12 +33,14 @@ function App() {
     ],
     "Doing": [
       {
+        "id": 'task_4',
         "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
         "status": "Doing",
         "assigned": "viendd",
         "description": "task desc"
       },
       {
+        "id": 'task_5',
         "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations UAT + PROD",
         "status": "Doing",
         "assigned": "viendd1",
@@ -44,12 +49,14 @@ function App() {
     ],
     "Review": [
       {
+        "id": 'task_6',
         "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
         "status": "Review",
         "assigned": "viendd",
         "description": "task desc"
       },
       {
+        "id": 'task_7',
         "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
         "status": "Review",
         "assigned": "viendd1",
@@ -58,12 +65,14 @@ function App() {
     ],
     "Done": [
       {
+        "id":'task_8',
         "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
         "status": "Done",
         "assigned": "viendd",
         "description": "task desc"
       },
       {
+        "id": 'task_9',
         "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
         "status": "Done",
         "assigned": "viendd1",
@@ -86,8 +95,9 @@ function App() {
     newAllTasks = deleteLatestIfNull(newAllTasks)
 
     newAllTasks[status].push({
+      "id": "task_" + ((Object.values(newAllTasks).flat().length) + 1).toString(),
       "title": "",
-      "status": "Review",
+      "status": status,
       "assigned": "",
       "description": ""
     })
@@ -100,8 +110,9 @@ function App() {
     const newAllTasks = {...allTasks}
     newAllTasks[status].pop()
     newAllTasks[status].push({
+      "id": "task_" + ((Object.values(newAllTasks).flat().length) + 1).toString(),
       "title": data.title,
-      "status": "Review",
+      "status": status,
       "assigned": "",
       "description": ""
     })
@@ -118,61 +129,40 @@ function App() {
     setStatusSelected(null)
   }
 
-  // a little function to help us with reordering the result
-  const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
+  const handleDragEnd = (result) => {
+    if (!result.destination) return; // Kiểm tra nếu không có điểm đến, không làm gì
 
-    return result;
+    const { source, destination } = result;
+    const updatedItems = Array.from(allTasks);
+
+    // Di chuyển mục từ vị trí nguồn đến vị trí đích
+    const [removed] = updatedItems.splice(source.index, 1);
+    updatedItems.splice(destination.index, 0, removed);
+
+    let a = Object.assign({}, updatedItems)
+    setAllTasks(a);
   };
-
-  const onDragEnd = (result) => {
-    // dropped outside the list
-    if (!result.destination) {
-      return;
-    }
-
-    const items = reorder(
-        this.state.items,
-        result.source.index,
-        result.destination.index
-    );
-
-    this.setState({
-      items
-    });
-  }
 
   return (
     <div className="App">
       <div className="container content-manager">
-        <DragDropContext onDragEnd={onDragEnd}>
-          <Droppable droppableId="droppable">
-            {(provided, snapshot) => (
-                <div
-                    {...provided.droppableProps}
-                    ref={provided.innerRef}
-                >
-                  {statuses.map((status, index) => {
-                    let tasks_by_status = allTasks[status];
-                    return (
-                        <Status
-                            tasks={tasks_by_status}
-                            onAddTask={onAddTask}
-                            status={status}
-                            key={index}
-                            onSubmitTask={onSubmitTask}
-                            isAdding={isAdding}
-                            statusSelected={statusSelected}
-                            onCloseNewTask={onCloseNewTask}
-                        />
-                    )
-                  })}
-                  {provided.placeholder}
-                </div>
-            )}
-          </Droppable>
+        <DragDropContext onDragEnd={handleDragEnd}>
+              {statuses.map((status, index) => {
+                let tasks_by_status = allTasks[status];
+                return (
+                    <Status
+                        tasks={tasks_by_status}
+                        onAddTask={onAddTask}
+                        status={status}
+                        index={index}
+                        onSubmitTask={onSubmitTask}
+                        isAdding={isAdding}
+                        statusSelected={statusSelected}
+                        onCloseNewTask={onCloseNewTask}
+                        key={index}
+                    />
+                )
+              })}
         </DragDropContext>
       </div>
     </div>
