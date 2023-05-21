@@ -30,50 +30,128 @@ function App(string, radix) {
         "assigned": "viendd",
         "description": "task desc"
       },
-    ],
-    "Doing": [
       {
         "id": 'task_4',
         "title": "Task 4 Demo",
-        "status": "Doing",
+        "status": "Todo",
         "assigned": "viendd",
         "description": "task desc"
       },
       {
         "id": 'task_5',
         "title": "Task 5 Demo",
-        "status": "Doing",
-        "assigned": "viendd1",
+        "status": "Todo",
+        "assigned": "viendd",
         "description": "task desc"
-      }
+      },
     ],
-    "Review": [
+    "Doing": [
       {
         "id": 'task_6',
         "title": "Task 6 Demo",
-        "status": "Review",
+        "status": "Doing",
         "assigned": "viendd",
         "description": "task desc"
       },
       {
         "id": 'task_7',
         "title": "Task 7 Demo",
-        "status": "Review",
+        "status": "Doing",
         "assigned": "viendd1",
         "description": "task desc"
-      }
-    ],
-    "Done": [
+      },
       {
-        "id":'task_8',
+        "id": 'task_8',
         "title": "Task 8 Demo",
-        "status": "Done",
+        "status": "Doing",
         "assigned": "viendd",
         "description": "task desc"
       },
       {
         "id": 'task_9',
         "title": "Task 9 Demo",
+        "status": "Doing",
+        "assigned": "viendd1",
+        "description": "task desc"
+      },
+      {
+        "id": 'task_10',
+        "title": "Task 10 Demo",
+        "status": "Doing",
+        "assigned": "viendd1",
+        "description": "task desc"
+      },
+    ],
+    "Review": [
+      {
+        "id": 'task_11',
+        "title": "Task 11 Demo",
+        "status": "Review",
+        "assigned": "viendd",
+        "description": "task desc"
+      },
+      {
+        "id": 'task_12',
+        "title": "Task 12 Demo",
+        "status": "Review",
+        "assigned": "viendd1",
+        "description": "task desc"
+      },
+      {
+        "id": 'task_13',
+        "title": "Task 13 Demo",
+        "status": "Review",
+        "assigned": "viendd1",
+        "description": "task desc"
+      },
+      {
+        "id": 'task_14',
+        "title": "Task 14 Demo",
+        "status": "Review",
+        "assigned": "viendd1",
+        "description": "task desc"
+      },
+      {
+        "id": 'task_15',
+        "title": "Task 15 Demo",
+        "status": "Review",
+        "assigned": "viendd1",
+        "description": "task desc"
+      }
+
+    ],
+    "Done": [
+      {
+        "id":'task_16',
+        "title": "Task 16 Demo",
+        "status": "Done",
+        "assigned": "viendd",
+        "description": "task desc"
+      },
+      {
+        "id": 'task_17',
+        "title": "Task 17 Demo",
+        "status": "Done",
+        "assigned": "viendd1",
+        "description": "task desc"
+      },
+      {
+        "id": 'task_18',
+        "title": "Task 18 Demo",
+        "status": "Done",
+        "assigned": "viendd1",
+        "description": "task desc"
+      },
+      {
+        "id": 'task_19',
+        "title": "Task 19 Demo",
+        "status": "Done",
+        "assigned": "viendd1",
+        "description": "task desc"
+      },
+      {
+        "id": 'task_20',
+        "title": "Task 20 Demo",
         "status": "Done",
         "assigned": "viendd1",
         "description": "task desc"
