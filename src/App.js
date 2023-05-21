@@ -224,9 +224,9 @@ function App(string, radix) {
     if (startColumn === endColumn){
       // newAllTasks[endColumn][endPosition] = cardStart
       // newAllTasks[startColumn][startPosition] = cardEnd
-      newAllTasks[endColumn].splice(endPosition, 0, cardStart);
+      newAllTasks[endColumn].splice(endPosition + 1, 0, cardStart);
     }else{
-      newAllTasks[endColumn].splice(endPosition, 0, cardStart);
+      newAllTasks[endColumn].splice(endPosition + 1, 0, cardStart);
     }
     setAllTasks(newAllTasks)
   }
