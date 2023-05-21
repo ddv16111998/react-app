@@ -20,7 +20,8 @@ function Task(props){
         // some basic styles to make the items look a bit nicer
         userSelect: "none",
         // change background colour if dragging
-
+        padding: 8 * 2,
+        margin: `0 0 8px 0`,
         // styles we need to apply on draggables
         ...draggableStyle
     });
