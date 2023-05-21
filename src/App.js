@@ -131,23 +131,22 @@ function App(string, radix) {
 
 
   const onDragEnd = (result) => {
-    console.log('result', result)
     let startColumn = result.source.droppableId
     let endColumn = result.destination.droppableId
-    console.log('startColumn', startColumn)
 
     let startPosition = parseInt(result.source.index) -1
+    console.log('start position', startPosition)
     let endPosition = parseInt(result.destination.index) - 1
-    // If start is different from end, we need to update multiple columns
-    // Filter the start list like before
+    console.log('end position', endPosition)
+
     let newAllTasks = {...allTasks};
-    console.log('all task by start column',newAllTasks[startColumn])
     let cardStart = newAllTasks[startColumn][startPosition]
-    console.log('cardStart', cardStart)
     delete newAllTasks[startColumn][startPosition]
-    console.log('all task after delete', newAllTasks[startColumn])
-    console.log('all task end column', newAllTasks[endColumn])
-    newAllTasks[endColumn].splice(endPosition, 0, cardStart);
+    if (startColumn === endColumn){
+      newAllTasks[endColumn][endPosition] = cardStart
+    }else{
+      newAllTasks[endColumn].splice(endPosition, 0, cardStart);
+    }
     setAllTasks(newAllTasks)
   }
 
