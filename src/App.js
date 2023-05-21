@@ -139,12 +139,12 @@ function App() {
     // Filter the start list like before
     let newAllTasks = {...allTasks};
     console.log('all task by start column',newAllTasks[startColumn])
-    let cardStart = newAllTasks[startColumn][result.source.index]
+    let cardStart = newAllTasks[startColumn][parseInt(result.source.index) - 1]
     console.log('cardStart', cardStart)
     delete newAllTasks[startColumn][result.source.index]
     console.log('all task after delete', newAllTasks[startColumn])
     console.log('all task end column', newAllTasks[endColumn])
-    newAllTasks[endColumn].splice(result.destination.index, 0, cardStart)
+    newAllTasks[endColumn].splice(parseInt(result.destination.index) - 1, 0, cardStart)
     setAllTasks(newAllTasks)
   }
 
