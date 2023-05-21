@@ -219,11 +219,23 @@ function App(string, radix) {
 
     let newAllTasks = {...allTasks};
     let cardStart = newAllTasks[startColumn][startPosition]
-    let cardEnd = newAllTasks[endColumn][endPosition]
+    // let cardEnd = newAllTasks[endColumn][endPosition]
     delete newAllTasks[startColumn][startPosition]
     if (startColumn === endColumn){
       newAllTasks[endColumn][endPosition] = cardStart
-      newAllTasks[startColumn][startPosition] = cardEnd
+
+      // modify
+      if (startPosition < endPosition) {
+        for (let i = startPosition + 1; i <= endPosition; i ++){
+          newAllTasks[i - 1] = newAllTasks[i]
+          delete newAllTasks[i];
+        }
+      }else{
+        for (let i = endPosition - 1; i <= endPosition; i ++){
+          newAllTasks[i + 1] = newAllTasks[i]
+          delete newAllTasks[i];
+        }
+      }
     }else{
       newAllTasks[endColumn].splice(endPosition, 0, cardStart);
     }
