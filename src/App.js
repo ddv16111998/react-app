@@ -84,7 +84,7 @@ function App(string, radix) {
 
   const deleteLatestIfNull = (newAllTasks) => {
     Object.keys(newAllTasks).forEach(function(key) {
-      if (newAllTasks[key].length && newAllTasks[key].slice(-1) && newAllTasks[key].slice(-1)[0].title === ""){
+      if (newAllTasks[key].length && newAllTasks[key].slice(-1)[0] && newAllTasks[key].slice(-1)[0].title === ""){
         newAllTasks[key].pop()
       }
     });
