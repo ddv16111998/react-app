@@ -224,13 +224,13 @@ function App(string, radix) {
     if (startColumn === endColumn){
       // modify
       if (startPosition < endPosition) {
-        for (let i = startPosition + 1; i < endPosition; i ++){
+        for (let i = startPosition + 1; i <= endPosition; i ++){
           newAllTasks[i - 1] = newAllTasks[i]
           delete newAllTasks[i];
         }
       }else{
         //đúng
-        for (let i = endPosition; i < startPosition; i ++){
+        for (let i = endPosition; i <= startPosition; i ++){
           newAllTasks[i + 1] = newAllTasks[i]
           delete newAllTasks[i];
         }
