@@ -226,13 +226,13 @@ function App(string, radix) {
       if (startPosition < endPosition) {
         for (let i = startPosition + 1; i <= endPosition; i ++){
           newAllTasks[i - 1] = newAllTasks[i]
-          delete newAllTasks[i];
+          // delete newAllTasks[i];
         }
       }else{
         //đúng
         for (let i = endPosition; i <= startPosition; i ++){
           newAllTasks[i + 1] = newAllTasks[i]
-          delete newAllTasks[i];
+          // delete newAllTasks[i];
         }
       }
       newAllTasks[endColumn][endPosition] = cardStart
