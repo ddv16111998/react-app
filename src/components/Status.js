@@ -42,8 +42,6 @@ function Status(props){
 
 
     const getListStyle = isDraggingOver => ({
-        padding: 8,
-        width: 250
     });
 
     return (
