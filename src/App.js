@@ -225,14 +225,12 @@ function App(string, radix) {
       // modify
       if (startPosition < endPosition) {
         for (let i = startPosition + 1; i <= endPosition; i ++){
-          newAllTasks[i - 1] = newAllTasks[i]
-          // delete newAllTasks[i];
+          newAllTasks[startColumn][i - 1] = newAllTasks[startColumn][i]
         }
       }else{
         //đúng
         for (let i = endPosition; i <= startPosition; i ++){
           newAllTasks[i + 1] = newAllTasks[i]
-          // delete newAllTasks[i];
         }
       }
       newAllTasks[endColumn][endPosition] = cardStart
