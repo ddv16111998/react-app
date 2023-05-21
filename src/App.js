@@ -129,27 +129,24 @@ function App() {
     setStatusSelected(null)
   }
 
-  const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
-
-    return result;
-  };
 
   const onDragEnd = (result) => {
-    // dropped outside the list
-    if (!result.destination) {
-      return;
+    console.log('result', result)
+    let startColumn = result.source.droppableId
+    let endColumn = result.destination.droppableId
+    if (startColumn === endColumn) {
+      return null;
+    } else {
+      // If start is different from end, we need to update multiple columns
+      // Filter the start list like before
+      let newAllTasks = {...allTasks};
+      let cardStart = newAllTasks[startColumn][result.source.index]
+      console.log('cardStart', cardStart)
+      delete newAllTasks[startColumn][result.source.index]
+      newAllTasks.splice(result.destination.index, 0, cardStart)
+      console.log('newAllTasks', newAllTasks)
+      setAllTasks(newAllTasks)
     }
-
-    const items = reorder(
-        allTasks.items,
-        result.source.index,
-        result.destination.index
-    );
-
-    setAllTasks(items)
   }
 
   return (

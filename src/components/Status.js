@@ -48,7 +48,7 @@ function Status(props){
         <div className={'status ' + status}>
             <div className="title-status">{status}</div>
             <div className="cards-by-status">
-                <Droppable key={dropId} index={index} droppableId={dropId}>
+                <Droppable key={dropId} index={index} droppableId={status}>
                     {(provided,snapshot) =>
                         (
                             <div
