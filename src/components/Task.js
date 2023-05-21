@@ -25,39 +25,40 @@ function Task(props){
     });
 
     return (
-        <div className="task-body">
-            <div className={'task task_' + status}>
-                <Draggable key={data.id} index={index} draggableId={data.id}>
-                    {(provided, snapshot) => (
-                        <div
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            style={getItemStyle(
-                                snapshot.isDragging,
-                                provided.draggableProps.style
-                            )}
-                        >
-                           <div className="able-drag">
-                               {
-                                   data.title ?
-                                       <span>{data.title}</span> :
-                                       <input type="text" autoFocus={true} placeholder="Enter a title for this card..." className="input-title-new-task" onKeyDown={handleKeyDown} onChange={onChangeTitleNewTask}/>
-                               }
-                               {
-                                   data.title && <div className="actions">
-                                       <Eye size={15} />
-                                       <CommentX size={15} />
-                                       <Attachment size={15} />
-                                   </div>
-                               }
-                           </div>
-                        </div>
+        <Draggable key={data.id} index={index} draggableId={data.id}>
+            {(provided, snapshot) => (
+                <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    style={getItemStyle(
+                        snapshot.isDragging,
+                        provided.draggableProps.style
                     )}
+                >
+                    <div className="task-body">
+                        <div className={'task task_' + status}>
+                                       <div className="able-drag">
+                                           {
+                                               data.title ?
+                                                   <span>{data.title}</span> :
+                                                   <input type="text" autoFocus={true} placeholder="Enter a title for this card..." className="input-title-new-task" onKeyDown={handleKeyDown} onChange={onChangeTitleNewTask}/>
+                                           }
+                                           {
+                                               data.title && <div className="actions">
+                                                   <Eye size={15} />
+                                                   <CommentX size={15} />
+                                                   <Attachment size={15} />
+                                               </div>
+                                           }
+                                       </div>
+                                    </div>
 
-                </Draggable>
-            </div>
-        </div>
+                        </div>
+                    </div>
+            )}
+
+        </Draggable>
     )
 }
 
