@@ -229,8 +229,8 @@ function App(string, radix) {
         }
       }else{
         //đúng
-        for (let i = endPosition; i <= startPosition; i ++){
-          newAllTasks[i + 1] = newAllTasks[i]
+        for (let i = startPosition; i >= endColumn; i --){
+          newAllTasks[startColumn][i + 1] = newAllTasks[startColumn][i]
         }
       }
       newAllTasks[endColumn][endPosition] = cardStart
