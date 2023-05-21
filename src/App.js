@@ -213,9 +213,9 @@ function App(string, radix) {
     let endColumn = result.destination.droppableId
 
     let startPosition = parseInt(result.source.index) -1
-    console.log('start position', startPosition)
+    // console.log('start position', startPosition)
     let endPosition = parseInt(result.destination.index) - 1
-    console.log('end position', endPosition)
+    // console.log('end position', endPosition)
 
     let newAllTasks = {...allTasks};
     let cardStart = newAllTasks[startColumn][startPosition]
