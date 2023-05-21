@@ -229,7 +229,7 @@ function App(string, radix) {
         }
       }else{
         //đúng
-        for (let i = startPosition - 1; i >= endColumn; i --){
+        for (let i = startPosition - 1; i >= endPosition; i --){
           newAllTasks[startColumn][i + 1] = newAllTasks[startColumn][i]
         }
       }
