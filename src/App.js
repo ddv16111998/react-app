@@ -129,24 +129,33 @@ function App() {
     setStatusSelected(null)
   }
 
-  const handleDragEnd = (result) => {
-    if (!result.destination) return; // Kiểm tra nếu không có điểm đến, không làm gì
+  const reorder = (list, startIndex, endIndex) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
 
-    const { source, destination } = result;
-    const updatedItems = Array.from(allTasks);
-
-    // Di chuyển mục từ vị trí nguồn đến vị trí đích
-    const [removed] = updatedItems.splice(source.index, 1);
-    updatedItems.splice(destination.index, 0, removed);
-
-    let a = Object.assign({}, updatedItems)
-    setAllTasks(a);
+    return result;
   };
+
+  const onDragEnd = (result) => {
+    // dropped outside the list
+    if (!result.destination) {
+      return;
+    }
+
+    const items = reorder(
+        allTasks.items,
+        result.source.index,
+        result.destination.index
+    );
+
+    setAllTasks(items)
+  }
 
   return (
     <div className="App">
       <div className="container content-manager">
-        <DragDropContext onDragEnd={handleDragEnd}>
+        <DragDropContext onDragEnd={onDragEnd}>
               {statuses.map((status, index) => {
                 let tasks_by_status = allTasks[status];
                 return (
