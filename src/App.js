@@ -3,7 +3,7 @@ import Status from "./components/Status";
 import {useEffect, useState} from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 
-function App() {
+function App(string, radix) {
   const [statuses] = useState(['Todo', 'Doing', 'Review', 'Done']);
   const [isAdding, setIsAdding] = useState(false);
   const [statusSelected, setStatusSelected] = useState(null);
@@ -135,16 +135,19 @@ function App() {
     let startColumn = result.source.droppableId
     let endColumn = result.destination.droppableId
     console.log('startColumn', startColumn)
+
+    let startPosition = parseInt(result.source.index) -1
+    let endPosition = parseInt(result.destination.index) - 1
     // If start is different from end, we need to update multiple columns
     // Filter the start list like before
     let newAllTasks = {...allTasks};
     console.log('all task by start column',newAllTasks[startColumn])
-    let cardStart = newAllTasks[startColumn][parseInt(result.source.index) - 1]
+    let cardStart = newAllTasks[startColumn][startPosition]
     console.log('cardStart', cardStart)
-    delete newAllTasks[startColumn][result.source.index]
+    delete newAllTasks[startColumn][startPosition]
     console.log('all task after delete', newAllTasks[startColumn])
     console.log('all task end column', newAllTasks[endColumn])
-    newAllTasks[endColumn].splice(parseInt(result.destination.index) - 1, 0, cardStart)
+    newAllTasks[endColumn].splice(endPosition, 0, cardStart);
     setAllTasks(newAllTasks)
   }
 
