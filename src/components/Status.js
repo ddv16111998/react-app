@@ -47,29 +47,29 @@ function Status(props){
     return (
         <div className={'status ' + status}>
             <div className="title-status">{status}</div>
-            <Droppable key={dropId} index={index} droppableId={dropId}>
-                {(provided,snapshot) =>
-                    (
-                    <div className="cards-by-status">
-                                    <div
-                                        ref={provided.innerRef}
-                                        {...provided.droppableProps}
-                                        style={getListStyle(snapshot.isDraggingOver)}
-                                    >
-                                        {
-                                            tasks && tasks.map((task, index) => {
-                                                return (
-                                                    <Task key={index} data={task} index={index} status={status} handleOnSubmitTask={handleOnSubmitTask} setTitleNewTask={setTitleNewTask}></Task>
-                                                )
-                                            })
-                                        }
-                                        {provided.placeholder}
-                                    </div>
+            <div className="cards-by-status">
+                <Droppable key={dropId} index={index} droppableId={dropId}>
+                    {(provided,snapshot) =>
+                        (
+                            <div
+                                ref={provided.innerRef}
+                                {...provided.droppableProps}
+                                style={getListStyle(snapshot.isDraggingOver)}
+                            >
+                                {
+                                    tasks && tasks.map((task, index) => {
+                                        return (
+                                            <Task key={index} data={task} index={index} status={status} handleOnSubmitTask={handleOnSubmitTask} setTitleNewTask={setTitleNewTask}></Task>
+                                        )
+                                    })
+                                }
+                                {provided.placeholder}
+                            </div>
+                        )
+                    }
+                </Droppable>
+            </div>
 
-                    </div>
-                    )
-                }
-            </Droppable>
             <div className="action__create-task">
                 {
                     (isAdding && statusSelected === status) ?
