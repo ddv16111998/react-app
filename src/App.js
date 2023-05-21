@@ -222,20 +222,20 @@ function App(string, radix) {
     // let cardEnd = newAllTasks[endColumn][endPosition]
     delete newAllTasks[startColumn][startPosition]
     if (startColumn === endColumn){
-      newAllTasks[endColumn][endPosition] = cardStart
-
       // modify
       if (startPosition < endPosition) {
-        for (let i = startPosition + 1; i <= endPosition; i ++){
+        for (let i = startPosition + 1; i < endPosition; i ++){
           newAllTasks[i - 1] = newAllTasks[i]
           delete newAllTasks[i];
         }
       }else{
-        for (let i = endPosition - 1; i <= endPosition; i ++){
+        //đúng
+        for (let i = endPosition; i < startPosition; i ++){
           newAllTasks[i + 1] = newAllTasks[i]
           delete newAllTasks[i];
         }
       }
+      newAllTasks[endColumn][endPosition] = cardStart
     }else{
       newAllTasks[endColumn].splice(endPosition, 0, cardStart);
     }
