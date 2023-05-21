@@ -5,6 +5,7 @@ import {Attachment} from "@styled-icons/entypo/Attachment"
 import {Draggable} from "react-beautiful-dnd";
 function Task(props){
     let {data, status, setTitleNewTask, handleOnSubmitTask, index} = props;
+    console.log('task',data)
     index = index + 1;
     const onChangeTitleNewTask = (e) => {
         setTitleNewTask(e.target.value)

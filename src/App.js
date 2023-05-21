@@ -141,10 +141,8 @@ function App() {
     console.log('all task by start column',newAllTasks[startColumn])
     let cardStart = newAllTasks[startColumn][result.source.index]
     console.log('cardStart', cardStart)
-    if (startColumn !== endColumn){
-      delete newAllTasks[startColumn][result.source.index]
-      console.log('all task after delete', newAllTasks[startColumn])
-    }
+    delete newAllTasks[startColumn][result.source.index]
+    console.log('all task after delete', newAllTasks[startColumn])
     console.log('all task end column', newAllTasks[endColumn])
     newAllTasks[endColumn].splice(result.destination.index, 0, cardStart)
     setAllTasks(newAllTasks)
