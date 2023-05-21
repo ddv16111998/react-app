@@ -11,21 +11,21 @@ function App() {
     "Todo": [
       {
         "id": 'task_1',
-        "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations. Mapping postal_code_id cho bảng user, delivery_address,donation_informations.Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
+        "title": "Task 1 Demo",
         "status": "Todo",
         "assigned": "viendd",
         "description": "task desc"
       },
       {
         "id": 'task_2',
-        "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
+        "title": "Task 2 Demo",
         "status": "Todo",
         "assigned": "viendd1",
         "description": "task desc"
       },
       {
         "id": 'task_3',
-        "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
+        "title": "Task 3 Demo",
         "status": "Todo",
         "assigned": "viendd",
         "description": "task desc"
@@ -34,14 +34,14 @@ function App() {
     "Doing": [
       {
         "id": 'task_4',
-        "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
+        "title": "Task 4 Demo",
         "status": "Doing",
         "assigned": "viendd",
         "description": "task desc"
       },
       {
         "id": 'task_5',
-        "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations UAT + PROD",
+        "title": "Task 5 Demo",
         "status": "Doing",
         "assigned": "viendd1",
         "description": "task desc"
@@ -50,14 +50,14 @@ function App() {
     "Review": [
       {
         "id": 'task_6',
-        "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
+        "title": "Task 6 Demo",
         "status": "Review",
         "assigned": "viendd",
         "description": "task desc"
       },
       {
         "id": 'task_7',
-        "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
+        "title": "Task 7 Demo",
         "status": "Review",
         "assigned": "viendd1",
         "description": "task desc"
@@ -66,14 +66,14 @@ function App() {
     "Done": [
       {
         "id":'task_8',
-        "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
+        "title": "Task 8 Demo",
         "status": "Done",
         "assigned": "viendd",
         "description": "task desc"
       },
       {
         "id": 'task_9',
-        "title": "Mapping postal_code_id cho bảng user, delivery_address,donation_informations",
+        "title": "Task 9 Demo",
         "status": "Done",
         "assigned": "viendd1",
         "description": "task desc"
