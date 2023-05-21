@@ -15,6 +15,16 @@ function Task(props){
             handleOnSubmitTask(status)
         }
     }
+
+    const getItemStyle = (isDragging, draggableStyle) => ({
+        // some basic styles to make the items look a bit nicer
+        userSelect: "none",
+        // change background colour if dragging
+
+        // styles we need to apply on draggables
+        ...draggableStyle
+    });
+
     return (
         <div className="task-body">
             <div className={'task task_' + status}>
@@ -24,6 +34,10 @@ function Task(props){
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
+                            style={getItemStyle(
+                                snapshot.isDragging,
+                                provided.draggableProps.style
+                            )}
                         >
                            <div className="able-drag">
                                {

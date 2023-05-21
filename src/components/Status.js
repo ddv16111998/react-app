@@ -39,16 +39,24 @@ function Status(props){
         fontSize: '20px',
         cursor: 'pointer'
     }
+
+
+    const getListStyle = isDraggingOver => ({
+        padding: 8,
+        width: 250
+    });
+
     return (
         <div className={'status ' + status}>
             <div className="title-status">{status}</div>
             <div className="cards-by-status">
                 <Droppable key={dropId} index={index} droppableId={dropId}>
-                    {(provided) =>
+                    {(provided,snapshot) =>
                         (
                             <div
                                 ref={provided.innerRef}
                                 {...provided.droppableProps}
+                                style={getListStyle(snapshot.isDraggingOver)}
                             >
                                 {
                                     tasks && tasks.map((task, index) => {
